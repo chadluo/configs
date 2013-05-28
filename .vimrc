@@ -8,8 +8,6 @@ set notimeout
 set ttimeout
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-cmap w!! w !sudo tee % >/dev/null
-
 " ======== Interface ======== 
 set ruler
 set wildmenu
@@ -21,11 +19,9 @@ set nowrap
 set mouse=a
 
 " ======== Folding ========  
-inoremap <leader>f <C-O>za
 nnoremap <leader>f za
 onoremap <leader>f <C-C>za
 "" open all folds
-inoremap <leader>F <C-O>zR
 nnoremap <leader>F zR
 onoremap <leader>F <C-C>zR
 set foldmethod=indent
@@ -43,11 +39,8 @@ set tm=500
 " ======== highlight ======== 
 filetype plugin indent on
 syntax on
-" colorscheme eclipse
-colorscheme github
-" colorscheme hemisu
-" colorscheme nuvola
-" colorscheme solarized
+" colorscheme corporation_modified
+colorscheme BusyBee
 set background=dark
 
 highlight OverLength ctermbg=red ctermfg=white
@@ -57,14 +50,24 @@ match OverLength /\%81v.\+/
 let mapleader=","
 let maplocalleader=","
 let g:mapleader=","
-"" Fast saving
-nmap <leader>w :w!<CR>
+
 "" new window
 map <leader>n :new<CR>
+
 "" clearing highlighted search
 noremap <silent> <leader><ESC> :nohlsearch<CR>
 vnoremap <silent> <leader><ESC> :nohlsearch<CR>
 inoremap <silent> <leader><ESC> :nohlsearch<CR>
+
+"" save as root
+nnoremap <leader>w <ESC>:w !sudo tee % > /dev/null<CR>
+
+"" syntastic check
+nnoremap <leader>s <ESC>:SyntasticCheck<CR>
+let g:syntastic_mode_map = {
+    \ 'mode': 'passive',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': [] }
 
 " ======== Search ========
 set hlsearch
@@ -128,18 +131,21 @@ silent! call pathogen#helptags()
 silent! call pathogen#runtime_append_all_bundles()
 execute pathogen#infect()
 
-" ======== Java ========
-let java_comment_strings=1
-let java_highlight_java_lang_ids=1
-let java_highlight_all=1
-let java_highlight_debug=1
-let java_highlight_functions="style"
-let java_minlines = 150
-
-" Omni Java Completion
+" Omni Completion
+"set omnifunc=syntaxcomplete#Complete
 if has("autocmd")
     autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+    autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 endif
-setlocal completefunc=javacomplete#Complete
-inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
-inoremap <buffer> <C-S-Space> <C-X><C-U><C-P> 
+"setlocal omnifunc=javacomplete#Complete
+"setlocal completefunc=javacomplete#CompleteParamsInfo
+"if has("autocmd")
+"    autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+"endif
+"inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
+"inoremap <buffer> <C-S-Space> <C-X><C-U><C-P> 
+
+" remember last cursor location
+if has("autocmd")
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
