@@ -1,33 +1,19 @@
 " ======== General ======== 
 set nocompatible
-set autoread
 set history=200
 set encoding=utf-8
-set laststatus=2
-set notimeout
-set ttimeout
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
 " ======== Interface ======== 
 set ruler
+set number
 set wildmenu
 set wildignore=*.0,*~,*.pyc,*.class
 set whichwrap+=<,>,h,l
-set number
 set scrolloff=8
 set nowrap
 set mouse=a
-
-" ======== Folding ========  
-nnoremap <leader>f za
-onoremap <leader>f <C-C>za
-"" open all folds
-nnoremap <leader>F zR
-onoremap <leader>F <C-C>zR
-set foldmethod=indent
-set nofoldenable
-
-" allow backspacing over everything in insert mode
+set laststatus=2
 set backspace=indent,eol,start
 
 " bell
@@ -36,23 +22,33 @@ set visualbell
 set t_vb=
 set tm=500
 
+" ======== Folding ========  
+nnoremap <leader>f za
+onoremap <leader>f <C-C>za
+" open all folds
+nnoremap <leader>F zR
+onoremap <leader>F <C-C>zR
+set foldmethod=indent
+set nofoldenable
+
 " ======== highlight ======== 
 filetype plugin indent on
 syntax on
-" colorscheme corporation_modified
 colorscheme BusyBee
 set background=dark
-
-highlight OverLength ctermbg=red ctermfg=white
+set t_co=256
+highlight OverLength ctermbg=black
 match OverLength /\%81v.\+/
 
 " ======== Mapleader ======== 
 let mapleader=","
 let maplocalleader=","
 let g:mapleader=","
+set notimeout
+set ttimeout
 
-"" new window
-map <leader>n :new<CR>
+"" split
+nnoremap <leader>s :split<CR>
 
 "" clearing highlighted search
 noremap <silent> <leader><ESC> :nohlsearch<CR>
@@ -63,7 +59,7 @@ inoremap <silent> <leader><ESC> :nohlsearch<CR>
 nnoremap <leader>w <ESC>:w !sudo tee % > /dev/null<CR>
 
 "" syntastic check
-nnoremap <leader>s <ESC>:SyntasticCheck<CR>
+nnoremap <leader>c <ESC>:SyntasticCheck<CR>
 let g:syntastic_mode_map = {
     \ 'mode': 'passive',
     \ 'active_filetypes': [],
@@ -72,6 +68,7 @@ let g:syntastic_mode_map = {
 " ======== Search ========
 set hlsearch
 set incsearch
+set ignorecase
 set smartcase
 
 " ======== File ========
@@ -79,6 +76,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set showcmd
+set autoread " auto reload when file changed
 
 " ======== Indent ========
 set autoindent
@@ -91,28 +89,25 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
-set t_co=256
+" ======== Operation ========
 
 " Navi 
 map j gj
 map k gk
 
-" tab switch
-map <leader>1 1gt
-map <leader>2 2gt
-map <leader>3 3gt
-map <leader>4 4gt
-map <leader>5 5gt
-map <leader>6 6gt
-map <leader>7 7gt
-map <leader>8 8gt
-map <leader>9 9gt
-
-" split window switch
+" walk through windows
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
+
+" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
+nmap <M-j> mz:m+<cr>`z
+nmap <M-k> mz:m-2<cr>`z
+vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+
+" ======== trival ========
 
 " fcitx support
 let g:input_toggle = 1
@@ -146,6 +141,9 @@ endif
 "inoremap <buffer> <C-S-Space> <C-X><C-U><C-P> 
 
 " remember last cursor location
-if has("autocmd")
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-endif
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" remember info about open buffers on close
+set viminfo^=%
