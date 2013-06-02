@@ -1,20 +1,45 @@
-" ======== General ======== 
+" ======== General ========
 set nocompatible
 set history=200
 set encoding=utf-8
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-" ======== Interface ======== 
+" ======== Vundle ========
+filetype off " required
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+" vim-scripts repos
+filetype plugin indent on " required
+
+Bundle 'AutoClose'
+Bundle 'EasyMotion'
+Bundle 'The-NERD-tree'
+Bundle 'hypergit.vim'
+
+Bundle 'Lokaltog/vim-powerline'
+
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
+" ======== Interface ========
 set ruler
-set number
+set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 set wildmenu
 set wildignore=*.0,*~,*.pyc,*.class
 set whichwrap+=<,>,h,l
-set scrolloff=8
+set scrolloff=4
 set nowrap
 set mouse=a
 set laststatus=2
 set backspace=indent,eol,start
+fixdel
 
 " bell
 set noerrorbells
@@ -22,7 +47,7 @@ set visualbell
 set t_vb=
 set tm=500
 
-" ======== Folding ========  
+" ======== Folding ========
 nnoremap <leader>f za
 onoremap <leader>f <C-C>za
 " open all folds
@@ -31,7 +56,7 @@ onoremap <leader>F <C-C>zR
 set foldmethod=indent
 set nofoldenable
 
-" ======== highlight ======== 
+" ======== highlight ========
 filetype plugin indent on
 syntax on
 colorscheme BusyBee
@@ -39,31 +64,6 @@ set background=dark
 set t_co=256
 highlight OverLength ctermbg=black
 match OverLength /\%81v.\+/
-
-" ======== Mapleader ======== 
-let mapleader=","
-let maplocalleader=","
-let g:mapleader=","
-set notimeout
-set ttimeout
-
-"" split
-nnoremap <leader>s :split<CR>
-
-"" clearing highlighted search
-noremap <silent> <leader><ESC> :nohlsearch<CR>
-vnoremap <silent> <leader><ESC> :nohlsearch<CR>
-inoremap <silent> <leader><ESC> :nohlsearch<CR>
-
-"" save as root
-nnoremap <leader>w <ESC>:w !sudo tee % > /dev/null<CR>
-
-"" syntastic check
-nnoremap <leader>c <ESC>:SyntasticCheck<CR>
-let g:syntastic_mode_map = {
-    \ 'mode': 'passive',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': [] }
 
 " ======== Search ========
 set hlsearch
@@ -101,15 +101,52 @@ nmap <silent> <C-l> :wincmd l<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 
+" move under insert mode
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+inoremap <C-h> <left>
+inoremap <C-l> <right>
+
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
+" tab for matching braces
+nnoremap <tab> %
+vnoremap <tab> %
+
+" ======== Mapleader ========
+let mapleader=","
+let maplocalleader=","
+let g:mapleader=","
+set notimeout
+set ttimeout
+
+"" split
+nnoremap <leader>s :split<CR>
+
+"" clearing highlighted search
+noremap <silent> <leader><ESC> :nohlsearch<CR>
+
+"" save as root
+nnoremap <leader>q :w !sudo tee % > /dev/null<CR>
+
+"" syntastic check
+nnoremap <leader>c :SyntasticCheck<CR>
+let g:syntastic_mode_map = {
+    \ 'mode': 'passive',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': [] }
+
+"" NERDTree
+nnoremap <leader>n :NERDTree<CR>
+
 " ======== trival ========
 
 " fcitx support
+autocmd InsertLeave * call Fcitx2en()
 let g:input_toggle = 1
 function! Fcitx2en()
     let s:input_status = system("fcitx-remote")
@@ -118,27 +155,15 @@ function! Fcitx2en()
         let l:a = system("fcitx-remote -c")
     endif
 endfunction
-autocmd InsertLeave * call Fcitx2en()
-
-" Pathogen
-runtime! autoload/pathogen.vim
-silent! call pathogen#helptags()
-silent! call pathogen#runtime_append_all_bundles()
-execute pathogen#infect()
 
 " Omni Completion
-"set omnifunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 if has("autocmd")
     autocmd Filetype java setlocal omnifunc=javacomplete#Complete
     autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 endif
-"setlocal omnifunc=javacomplete#Complete
-"setlocal completefunc=javacomplete#CompleteParamsInfo
-"if has("autocmd")
-"    autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-"endif
-"inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
-"inoremap <buffer> <C-S-Space> <C-X><C-U><C-P> 
+inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
+inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 
 " remember last cursor location
 autocmd BufReadPost *
