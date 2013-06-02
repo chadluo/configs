@@ -21,12 +21,8 @@ alias updt="yaourt -Syua"
 alias udt="yaourt -Syua"
 alias pacsrch="pacman -Qs"
 
-alias csessh="ssh xluo086@login.cse.unsw.edu.au"
-
 wiki() { dig +short txt $1.wp.dg.cx; }
 mkcd() { mkdir $1 && cd $1 }
 coc() { clang $1.c -o $1 }
 jc() { javac $1.java && java $1 }
 lr() { lilypond $1.ly && zathura $1.pdf }
-
-csescp() { scp $1 xluo086@login.cse.unsw.edu.au:~ }
