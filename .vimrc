@@ -5,21 +5,18 @@ set encoding=utf-8
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
 " ======== Vundle ========
-filetype off " required
+filetype off " required for vundle
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle
-" required!
+call vundle#rc() " required! let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 " vim-scripts repos
 filetype plugin indent on " required
 
 Bundle 'AutoClose'
 Bundle 'EasyMotion'
-Bundle 'The-NERD-tree'
-Bundle 'hypergit.vim'
-
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'Markdown'
+Bundle 'The-NERD-tree'
 
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
@@ -95,6 +92,10 @@ set smarttab
 map j gj
 map k gk
 
+" Select all
+" map <C-a> ggvG
+map <C-a> gg=G
+
 " walk through windows
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
@@ -117,35 +118,43 @@ vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 nnoremap <tab> %
 vnoremap <tab> %
 
-" ======== Mapleader ========
+" ==== Mapleader ====
 let mapleader=","
 let maplocalleader=","
 let g:mapleader=","
 set notimeout
 set ttimeout
+" may cause problem for <ESC> exit INSERT to NORMAL
+" use <C-C> instead
 
 "" split
 nnoremap <leader>s :split<CR>
 
 "" clearing highlighted search
 noremap <silent> <leader><ESC> :nohlsearch<CR>
-
 "" save as root
 nnoremap <leader>q :w !sudo tee % > /dev/null<CR>
 
-"" syntastic check
-nnoremap <leader>c :SyntasticCheck<CR>
-let g:syntastic_mode_map = {
-    \ 'mode': 'passive',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': [] }
-
 "" NERDTree
 nnoremap <leader>n :NERDTree<CR>
+" o - open/close file or dir
+" t - open in new tab
+" T - open in background tab
+" ! - execute
+" p - upper directory
+" P - root directory
+" K - first node
+" J - last node
+" u - open upper directory
+" m - filesystem menu
+" ? - help
+" q - quit
+" r - refresh
+" <C-w>h/j/k/l
 
 " ======== trival ========
 
-" fcitx support
+" turn off fcitx when exit INSERT
 autocmd InsertLeave * call Fcitx2en()
 let g:input_toggle = 1
 function! Fcitx2en()
@@ -167,8 +176,8 @@ inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 
 " remember last cursor location
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
 " remember info about open buffers on close
 set viminfo^=%
