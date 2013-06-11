@@ -4,25 +4,6 @@ set history=200
 set encoding=utf-8
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-" ======== Vundle ========
-filetype off " required for vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc() " required! let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-" vim-scripts repos
-filetype plugin indent on " required
-
-Bundle 'AutoClose'
-Bundle 'EasyMotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Markdown'
-Bundle 'The-NERD-tree'
-
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-
 " ======== Interface ========
 set ruler
 set relativenumber
@@ -37,6 +18,7 @@ set mouse=a
 set laststatus=2
 set backspace=indent,eol,start
 fixdel
+let t_Co=256
 
 " bell
 set noerrorbells
@@ -44,7 +26,14 @@ set visualbell
 set t_vb=
 set tm=500
 
-" ======== Folding ========
+" split
+set splitbelow
+set splitright
+
+" Powerline
+let g:Powerline_symbols='fancy'
+
+" ==== Folding ====
 nnoremap <leader>f za
 onoremap <leader>f <C-C>za
 " open all folds
@@ -53,10 +42,9 @@ onoremap <leader>F <C-C>zR
 set foldmethod=indent
 set nofoldenable
 
-" ======== highlight ========
-filetype plugin indent on
+" ==== highlight ====
 syntax on
-colorscheme BusyBee
+colorscheme mBusyBee
 set background=dark
 set t_co=256
 highlight OverLength ctermbg=black
@@ -86,15 +74,30 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
+" ======== Vundle ========
+filetype off " required for vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc() " required! let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+" vim-scripts repos
+filetype plugin indent on " required
+
+Bundle 'AutoClose'
+Bundle 'EasyMotion'
+Bundle 'Markdown'
+Bundle 'The-NERD-tree'
+Bundle 'ZenCoding.vim'
+
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
 " ======== Operation ========
 
 " Navi 
 map j gj
 map k gk
-
-" Select all
-" map <C-a> ggvG
-map <C-a> gg=G
 
 " walk through windows
 nmap <silent> <C-h> :wincmd h<CR>
@@ -108,7 +111,7 @@ inoremap <C-k> <up>
 inoremap <C-h> <left>
 inoremap <C-l> <right>
 
-" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
+" Move a line/lines of text using ALT+[jk]
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
@@ -117,6 +120,10 @@ vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 " tab for matching braces
 nnoremap <tab> %
 vnoremap <tab> %
+
+" jump to begin/end of line
+noremap H ^
+noremap L $
 
 " ==== Mapleader ====
 let mapleader=","
@@ -132,8 +139,12 @@ nnoremap <leader>s :split<CR>
 
 "" clearing highlighted search
 noremap <silent> <leader><ESC> :nohlsearch<CR>
+
 "" save as root
 nnoremap <leader>q :w !sudo tee % > /dev/null<CR>
+
+" indent all
+map <leader>= gg=G
 
 "" NERDTree
 nnoremap <leader>n :NERDTree<CR>
@@ -152,11 +163,14 @@ nnoremap <leader>n :NERDTree<CR>
 " r - refresh
 " <C-w>h/j/k/l
 
+" zencoding(emmet)
+let g:user_zen_expandabbr_key='<c-e>'
+
 " ======== trival ========
 
 " turn off fcitx when exit INSERT
-autocmd InsertLeave * call Fcitx2en()
 let g:input_toggle = 1
+autocmd InsertLeave * call Fcitx2en()
 function! Fcitx2en()
     let s:input_status = system("fcitx-remote")
     if s:input_status == 2
