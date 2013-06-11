@@ -100,10 +100,10 @@ map j gj
 map k gk
 
 " walk through windows
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-l> :wincmd l<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-k> :wincmd k<CR>
+nmap <C-h> :wincmd h<CR>
+nmap <C-l> :wincmd l<CR>
+nmap <C-j> :wincmd j<CR>
+nmap <C-k> :wincmd k<CR>
 
 " move under insert mode
 inoremap <C-j> <down>
@@ -138,7 +138,7 @@ set ttimeout
 nnoremap <leader>s :split<CR>
 
 "" clearing highlighted search
-noremap <silent> <leader><ESC> :nohlsearch<CR>
+noremap <leader><ESC> :nohlsearch<CR>
 
 "" save as root
 nnoremap <leader>q :w !sudo tee % > /dev/null<CR>
