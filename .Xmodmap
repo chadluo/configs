@@ -1,0 +1,17 @@
+! Esc, Caps, Ctrl -> Caps, Ctrl, Esc
+remove Lock = Caps_Lock
+remove Control = Control_L
+keycode   9 = Caps_Lock NoSymbol Caps_Lock NoSymbol Caps_Lock
+keycode  37 = Escape NoSymbol Escape NoSymbol Escape
+keycode  66 = Control_L NoSymbol Control_L NoSymbol Control_L
+add Lock = Caps_Lock
+add Control = Control_L
+
+! Menu -> Alt_R
+keycode 135 = Alt_R Meta_R Alt_R Meta_R
+
+! swap colon and semicolon
+keycode  47 = colon semicolon braille_dot_8
+
+! Reverse scroll, both ver and hor
+pointer = 1 2 3 5 4 7 6 8 9 10 11 12

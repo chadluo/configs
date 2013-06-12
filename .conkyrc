@@ -1,0 +1,53 @@
+# - Conky settings
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+background yes
+
+# - Text settings
+use_xft yes
+xftfont Dinreg:size=120
+# xftfont Inconsolata:size=200
+# xftfont Monaco:size=160
+override_utf8_locale yes
+text_buffer_size 2048
+xftalpha 0.5
+
+# - Window specifications
+own_window_class Conky
+own_windows yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#own_window_argb_visual yes
+#own_window_argb_value 100
+
+alignment middle_left
+gap_x 0
+gap_y 0
+# minimum_size 290 340
+
+# default_bar_size 60 8
+
+# - Graphics settings
+draw_shades no
+
+default_color dddddd
+default_shade_color 1d1d1d
+color0 dddddd
+color1 ffffff
+
+lua_load ~/.conky/conkybg.lua
+lua_draw_hook_pre conky_draw_bg
+
+TEXT
+${color}${loadavg}
+${color1}${voffset -90}${time %H}.${time %M} / ${upspeedf wlan0} ${downspeedf wlan0}
+${color}${voffset -90}${texeci 1440 curl ifconfig.me | sed "s/\n//g"}
+#${voffset -90}${execi 2 deadbeef --nowplaying "%t"}
