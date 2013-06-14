@@ -1,0 +1,21 @@
+"hg6927
+
+loadplugins '\.(js|penta)$'
+group user
+map -count -modes=n,v <C-a> -builtin <count><C-v><C-a>
+map -count -modes=n,v <C-b> -builtin <count><C-v><C-b>
+map -count -modes=n,v <C-c> -builtin <count><C-v><C-c>
+map -count -modes=n,v <C-f> -builtin <count><C-v><C-f>
+map -count -modes=n,v <C-o> -builtin <count><C-a>
+map -count -modes=n,v h -builtin <count>gT
+map -count -modes=n,v j -builtin <count>8j
+map -count -modes=n,v l -builtin <count>gt
+map -count -modes=n,v k -builtin <count>8k
+map -count -modes=c <C-c> -builtin <C-v><C-c>
+map -count -modes=c <C-v> -builtin <C-v><C-v>
+map -count -modes=c <C-x> -builtin <C-v><C-x>
+map -count -modes=c <C-b> -builtin <C-v><C-b>
+map -count -modes=i <C-a> -builtin <C-v><C-a>
+set hintkeys=qwertyuiopasdfghjkl
+
+" vim: set ft=pentadactyl:

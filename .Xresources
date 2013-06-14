@@ -1,0 +1,30 @@
+! Update: xrdb -merge .Xresources
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintfull
+
+UXTerm*borderLess:true
+
+UXTerm*faceNameDoublesize: WenQuanYi Micro Hei Mono
+
+UXTerm*faceName: Menlo for Powerline
+UXTerm*faceSize: 10
+
+! UXTerm*faceName: Anonymous Pro for Powerline
+! UXTerm*faceSize: 12
+
+XTerm*loginshell: 1
+XTerm*locale: 1
+XTerm.utf8: 1
+XTerm*utf8Title: 1
+
+UXTerm.VT100*dynamicColors: On
+UXTerm*geometry:85x55-100+100
+UXTerm*rightScrollBar: true
+UXTerm*cursorBlink: false
+UXTerm*xftAntialias: 1
+
+UXTerm*background: #192224
+UXTerm*foreground: #FFFFFF
