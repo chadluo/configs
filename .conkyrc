@@ -1,5 +1,5 @@
 # - Conky settings
-update_interval 1
+update_interval 10
 total_run_times 0
 net_avg_samples 1
 cpu_avg_samples 1
@@ -38,7 +38,7 @@ draw_shades no
 
 default_color dddddd
 default_shade_color 1d1d1d
-color0 dddddd
+color0 888888
 color1 ffffff
 
 lua_load ~/.conky/conkybg.lua
@@ -46,6 +46,6 @@ lua_draw_hook_pre conky_draw_bg
 
 TEXT
 ${color}${loadavg}
-${color1}${voffset -90}${time %H}.${time %M} / ${upspeedf wlp2s0} ${downspeedf wlp2s0}
-${color}${voffset -90}${texeci 1440 curl ifconfig.me | sed "s/\n//g"}
+${color1}${voffset -85}${time %H}.${time %M} / ${upspeedf wlp2s0} ${downspeedf wlp2s0}
+${color}${voffset -85}${texeci 1440 curl ifconfig.me | sed "s/\n//g"}
 #${voffset -90}${execi 2 deadbeef --nowplaying "%t"}

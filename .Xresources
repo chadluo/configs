@@ -12,19 +12,54 @@ UXTerm*faceNameDoublesize: WenQuanYi Micro Hei Mono
 UXTerm*faceName: Menlo for Powerline
 UXTerm*faceSize: 10
 
-! UXTerm*faceName: Anonymous Pro for Powerline
-! UXTerm*faceSize: 12
-
 XTerm*loginshell: 1
 XTerm*locale: 1
 XTerm.utf8: 1
 XTerm*utf8Title: 1
 
 UXTerm.VT100*dynamicColors: On
-UXTerm*geometry:85x55-100+100
+UXTerm*geometry:85x57-100+100
 UXTerm*rightScrollBar: true
 UXTerm*cursorBlink: false
 UXTerm*xftAntialias: 1
 
 UXTerm*background: #192224
 UXTerm*foreground: #FFFFFF
+
+! -------- !
+
+*newLoginCommand: lxdm -c USER_SWITCH
+
+URxvt.background: rgba:1111/1111/1111/eeee
+
+URxvt.iconFile: /usr/share/icons/Faience/apps/scalable/utilities-terminal.svg
+
+URxvt*termName:screen-256color
+URxvt*loginShell:true
+URxvt.scrollBar: false
+URxvt.geometry: 85x57-100+100
+URxvt.depth: 32
+URxvt.saveLines: 50000
+
+!URxvt.font: xft:Menlo for Powerline:size=10
+URxvt.font: xft:Menlo for Powerline:size=10,xft:WenQuanYi Micro Hei Mono:size=10
+
+URxvt.foreground: #FFFFFF
+URxvt.color0:     #2E3436
+URxvt.color1:     #CC0000
+URxvt.color2:     #4E9A06
+URxvt.color3:     #C4A000
+URxvt.color4:     #3465A4
+URxvt.color5:     #75507B
+URxvt.color6:     #06989A
+URxvt.color7:     #D3D7CF
+URxvt.color8:     #555753
+URxvt.color9:     #EF2929
+URxvt.color10:    #8AE234
+URxvt.color11:    #FCE94F
+URxvt.color12:    #729FCF
+URxvt.color13:    #AD7FA8
+URxvt.color14:    #34E2E2
+URxvt.color15:    #EEEEEC
+
+URxvt.inputMethod:fcitx
