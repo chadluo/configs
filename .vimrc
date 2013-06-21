@@ -45,7 +45,6 @@ set nofoldenable
 " ==== highlight ====
 syntax on
 colorscheme mBusyBee
-set background=dark
 set t_co=256
 highlight OverLength ctermbg=black
 match OverLength /\%81v.\+/

@@ -5,43 +5,19 @@ Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintfull
 
-UXTerm*borderLess:true
-
-UXTerm*faceNameDoublesize: WenQuanYi Micro Hei Mono
-
-UXTerm*faceName: Menlo for Powerline
-UXTerm*faceSize: 10
-
-XTerm*loginshell: 1
-XTerm*locale: 1
-XTerm.utf8: 1
-XTerm*utf8Title: 1
-
-UXTerm.VT100*dynamicColors: On
-UXTerm*geometry:85x57-100+100
-UXTerm*rightScrollBar: true
-UXTerm*cursorBlink: false
-UXTerm*xftAntialias: 1
-
-UXTerm*background: #192224
-UXTerm*foreground: #FFFFFF
-
 ! -------- !
 
 *newLoginCommand: lxdm -c USER_SWITCH
 
-URxvt.background: rgba:1111/1111/1111/eeee
-
-URxvt.iconFile: /usr/share/icons/Faience/apps/scalable/utilities-terminal.svg
-
 URxvt*termName:screen-256color
 URxvt*loginShell:true
+URxvt.background: rgba:1111/1111/1111/eeee
+URxvt.iconFile: /usr/share/icons/Faience/apps/scalable/utilities-terminal.svg
 URxvt.scrollBar: false
 URxvt.geometry: 85x57-100+100
 URxvt.depth: 32
 URxvt.saveLines: 50000
 
-!URxvt.font: xft:Menlo for Powerline:size=10
 URxvt.font: xft:Menlo for Powerline:size=10,xft:WenQuanYi Micro Hei Mono:size=10
 
 URxvt.foreground: #FFFFFF
@@ -62,4 +38,4 @@ URxvt.color13:    #AD7FA8
 URxvt.color14:    #34E2E2
 URxvt.color15:    #EEEEEC
 
-URxvt.inputMethod:fcitx
+URxvt.inputMethod: fcitx
