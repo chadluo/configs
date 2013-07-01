@@ -82,11 +82,11 @@ Bundle 'gmarik/vundle'
 " vim-scripts repos
 filetype plugin indent on " required
 
-Bundle 'AutoClose'
 Bundle 'EasyMotion'
 Bundle 'Markdown'
 Bundle 'The-NERD-tree'
 Bundle 'ZenCoding.vim'
+Bundle 'godlygeek/tabular'
 
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
@@ -126,9 +126,9 @@ noremap H ^
 noremap L $
 
 " ==== Mapleader ====
-let mapleader=","
-let maplocalleader=","
-let g:mapleader=","
+let mapleader="'"
+let maplocalleader="'"
+let g:mapleader="'"
 set notimeout
 set ttimeout
 " may cause problem for <ESC> exit INSERT to NORMAL
@@ -181,10 +181,8 @@ endfunction
 
 " Omni Completion
 set omnifunc=syntaxcomplete#Complete
-if has("autocmd")
-    autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-    autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
-endif
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
 inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 

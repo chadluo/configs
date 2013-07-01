@@ -1,5 +1,5 @@
 # - Conky settings
-update_interval 3
+update_interval 1
 total_run_times 0
 net_avg_samples 1
 cpu_avg_samples 1
@@ -46,6 +46,5 @@ lua_draw_hook_pre conky_draw_bg
 
 TEXT
 ${color}${loadavg}
-${color1}${voffset -85}${time %H}.${time %M} / ${upspeedf wlp2s0} ${downspeedf wlp2s0}
+${color1}${voffset -85}${time %H}.${time %M} / ${acpitemp} / ${battery_percent}%
 ${color}${voffset -85}${texeci 1440 curl ifconfig.me | sed "s/\n//g"}
-#${voffset -90}${execi 2 deadbeef --nowplaying "%t"}

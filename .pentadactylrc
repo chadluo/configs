@@ -1,7 +1,9 @@
-"hg6927
+"hg6928
 
 loadplugins '\.(js|penta)$'
 group user
+highlight Hint font:bold 14px 'Monaco for Powerline'; color:#000; text-shadow:0 0.1em 1px rgba(255,255,255,0.8); background: -moz-linear-gradient(top, rgba(255,247,133,0.95), rgba(255,197,66,0.95)); padding:2px; border-radius:3px; border: 1px solid #666; box-shadow: 0 3px 10px rgba(0,0,0,0.6)
+highlight StatusNormal color: inherit !important; background: transparent !important; font-family: "Menlo for Powerline";
 map -count -modes=n,v <C-a> -builtin <count><C-v><C-a>
 map -count -modes=n,v <C-b> -builtin <count><C-v><C-b>
 map -count -modes=n,v <C-c> -builtin <count><C-v><C-c>
@@ -9,13 +11,16 @@ map -count -modes=n,v <C-f> -builtin <count><C-v><C-f>
 map -count -modes=n,v <C-o> -builtin <count><C-a>
 map -count -modes=n,v h -builtin <count>gT
 map -count -modes=n,v j -builtin <count>8j
-map -count -modes=n,v l -builtin <count>gt
 map -count -modes=n,v k -builtin <count>8k
+map -count -modes=n,v l -builtin <count>gt
+map -count -modes=n,v Y -builtin <count>y
+map -count -modes=n,v y -builtin <count>Y
 map -count -modes=c <C-c> -builtin <C-v><C-c>
-map -count -modes=c <C-v> -builtin <C-v><C-v>
+map -count -modes=c,i <C-v> -builtin <C-v><C-v>
 map -count -modes=c <C-x> -builtin <C-v><C-x>
 map -count -modes=c <C-b> -builtin <C-v><C-b>
 map -count -modes=i <C-a> -builtin <C-v><C-a>
 set hintkeys=qwertyuiopasdfghjkl
+set passkeys=feedly.com:jkr<Esc>,photo.renren.com:jk,www.douban.com:<left><right>
 
 " vim: set ft=pentadactyl:
