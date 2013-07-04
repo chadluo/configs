@@ -18,6 +18,8 @@ URxvt.geometry: 85x57-100+100
 URxvt.depth: 32
 URxvt.saveLines: 50000
 
+URxvt*meta8: True
+
 URxvt.font: xft:Menlo for Powerline:size=10,xft:WenQuanYi Micro Hei Mono:size=10
 
 URxvt.foreground: #FFFFFF

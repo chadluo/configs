@@ -46,5 +46,5 @@ lua_draw_hook_pre conky_draw_bg
 
 TEXT
 ${color}${loadavg}
-${color1}${voffset -85}${time %H}.${time %M} / ${acpitemp} / ${battery_percent}%
+${color1}${voffset -85}${time %H}.${time %M} / ${acpitemp} / ${battery_percent}
 ${color}${voffset -85}${texeci 1440 curl ifconfig.me | sed "s/\n//g"}

@@ -7,9 +7,6 @@ keycode  66 = Control_L NoSymbol Control_L NoSymbol Control_L
 add Lock = Caps_Lock
 add Control = Control_L
 
-! Menu -> Alt_R
-keycode 135 = Alt_R Meta_R Alt_R Meta_R
-
 ! swap colon and semicolon
 keycode  47 = colon semicolon braille_dot_8
 

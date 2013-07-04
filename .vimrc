@@ -74,25 +74,6 @@ set shiftwidth=4
 set expandtab
 set smarttab
 
-" ======== Vundle ========
-filetype off " required for vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc() " required! let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-" vim-scripts repos
-filetype plugin indent on " required
-
-Bundle 'EasyMotion'
-Bundle 'Markdown'
-Bundle 'The-NERD-tree'
-Bundle 'ZenCoding.vim'
-Bundle 'godlygeek/tabular'
-
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-
 " ======== Operation ========
 
 " Navi 
@@ -124,6 +105,27 @@ vnoremap <tab> %
 " jump to begin/end of line
 noremap H ^
 noremap L $
+
+" ======== Vundle ========
+filetype off " required for vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc() " required! let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+" vim-scripts repos
+filetype plugin indent on " required
+
+Bundle 'EasyMotion'
+Bundle 'Markdown'
+Bundle 'The-NERD-tree'
+Bundle 'ZenCoding.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'javacomplete'
+Bundle 'SyntaxComplete'
+
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
 " ==== Mapleader ====
 let mapleader="'"
@@ -163,10 +165,10 @@ nnoremap <leader>n :NERDTree<CR>
 " r - refresh
 " <C-w>h/j/k/l
 
+" ======== trival ========
+"
 " zencoding(emmet)
 let g:user_zen_expandabbr_key='<c-e>'
-
-" ======== trival ========
 
 " turn off fcitx when exit INSERT
 let g:input_toggle = 1
@@ -183,8 +185,9 @@ endfunction
 set omnifunc=syntaxcomplete#Complete
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
-inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
-inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
+"inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
+"inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
+imap <silent> ` <c-x><c-o>
 
 " remember last cursor location
 autocmd BufReadPost *
