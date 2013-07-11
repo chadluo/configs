@@ -93,6 +93,7 @@ inoremap <C-h> <left>
 inoremap <C-l> <right>
 
 " Move a line/lines of text using ALT+[jk]
+" <Meta> not working under rxvt
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
@@ -128,12 +129,12 @@ Bundle 'SyntaxComplete'
 " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
 " ==== Mapleader ====
-let mapleader="'"
-let maplocalleader="'"
-let g:mapleader="'"
+let mapleader=","
+let maplocalleader=","
+let g:mapleader=","
 set notimeout
 set ttimeout
-" may cause problem for <ESC> exit INSERT to NORMAL
+" may cause problem for <ESC> exit INSERT to NORMAL under xterm
 " use <C-C> instead
 
 "" split
@@ -166,7 +167,7 @@ nnoremap <leader>n :NERDTree<CR>
 " <C-w>h/j/k/l
 
 " ======== trival ========
-"
+
 " zencoding(emmet)
 let g:user_zen_expandabbr_key='<c-e>'
 
