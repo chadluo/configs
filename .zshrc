@@ -20,7 +20,7 @@ alias ports="ss --all --numeric --processes"
 alias gcc="gcc -g"
 alias clang="clang -g"
 
-# package managing
+# pacman
 alias updt="yaourt -Syua"
 alias udt="yaourt -Syua"
 alias pacsrch="pacman -Qs"
@@ -31,7 +31,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -I'
 
-iki() { dig +short txt $1.wp.dg.cx; }
+wiki() { dig +short txt $1.wp.dg.cx; }
 mkcd() { mkdir $1 && cd $1 }
 coc() { clang $1.c -o $1 }
 jc() { javac $1.java && java $1 }
