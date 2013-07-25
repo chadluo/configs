@@ -12,3 +12,79 @@ keycode  47 = colon semicolon braille_dot_8
 
 ! Reverse scroll, both ver and hor
 pointer = 1 2 3 5 4 7 6 8 9 10 11 12
+
+! Dvorak
+
+! org
+! keycode  20 = minus underscore minus underscore
+! keycode  21 = equal plus equal plus
+! keycode  24 = q Q q Q
+! keycode  25 = w W w W
+! keycode  26 = e E e E
+! keycode  27 = r R r R
+! keycode  28 = t T t T
+! keycode  29 = y Y y Y
+! keycode  30 = u U u U
+! keycode  31 = i I i I
+! keycode  32 = o O o O
+! keycode  33 = p P p P
+! keycode  34 = bracketleft braceleft bracketleft braceleft
+! keycode  35 = bracketright braceright bracketright braceright
+! keycode  38 = a A a A
+! keycode  39 = s S s S
+! keycode  40 = d D d D
+! keycode  41 = f F f F
+! keycode  42 = g G g G
+! keycode  43 = h H h H
+! keycode  44 = j J j J
+! keycode  45 = k K k K
+! keycode  46 = l L l L
+! keycode  47 = colon semicolon braille_dot_8
+! keycode  48 = apostrophe quotedbl apostrophe quotedbl
+! keycode  52 = z Z z Z
+! keycode  53 = x X x X
+! keycode  54 = c C c C
+! keycode  55 = v V v V
+! keycode  56 = b B b B
+! keycode  57 = n N n N
+! keycode  58 = m M m M
+! keycode  59 = comma less comma less
+! keycode  60 = period greater period greater
+! keycode  61 = slash question slash question
+
+! new
+keycode  20 = bracketleft braceleft bracketleft braceleft
+keycode  21 = bracketright braceright bracketright braceright
+keycode  24 = apostrophe quotedbl apostrophe quotedbl
+keycode  25 = comma less comma less
+keycode  26 = period greater period greater
+keycode  27 = p P p P
+keycode  28 = y Y y Y
+keycode  29 = f F f F
+keycode  30 = g G g G
+keycode  31 = c C c C
+keycode  32 = r R r R
+keycode  33 = l L l L
+keycode  34 = slash question slash question
+keycode  35 = equal plus equal plus
+keycode  38 = a A a A
+keycode  39 = o O o O
+keycode  40 = e E e E
+keycode  41 = u U u U
+keycode  42 = i I i I
+keycode  43 = d D d D
+keycode  44 = h H h H
+keycode  45 = t T t T
+keycode  46 = n N n N
+keycode  47 = s S s S
+keycode  48 = minus underscore minus underscore
+keycode  52 = colon semicolon braille_dot_8
+keycode  53 = q Q q Q
+keycode  54 = j J j J
+keycode  55 = k K k K
+keycode  56 = x X x X
+keycode  57 = b B b B
+keycode  58 = m M m M
+keycode  59 = w W w W
+keycode  60 = v V v V
+keycode  61 = z Z z Z
