@@ -77,10 +77,10 @@ set smarttab
 " ======== Operation ========
 
 " Dvorak
-" nmap d h
-" nmap h j
-" nmap t k
-" nmap n l
+" nnoremap d h
+" nnoremap h j
+" nnoremap t k
+" nnoremap n l
 
 " Navi 
 map j gj
