@@ -1,8 +1,14 @@
-"hg6928
+"hg6935
 
 loadplugins '\.(js|penta)$'
 group user
-highlight Hint font:bold 14px 'Monaco for Powerline'; color:#000; text-shadow:0 0.1em 1px rgba(255,255,255,0.8); background: -moz-linear-gradient(top, rgba(255,247,133,0.95), rgba(255,197,66,0.95)); padding:2px; border-radius:3px; border: 1px solid #666; box-shadow: 0 3px 10px rgba(0,0,0,0.6)
+highlight -link=FontFixed CmdLine padding: 1px !important; font-size: 14px!important; font-family: "Monaco for Powerline"!important
+highlight -link=FontFixed CompItem
+highlight FontCode /* The font used for code listings */ font-size: 9pt; font-family: "Monaco for Powerline" !important;
+highlight FontFixed font-family: "Monaco for Powerline"!important
+highlight FontProportional /* The font used for proportionally spaced text */ font-size: 10pt; font-family: "Monaco for Powerline"!important;
+highlight -link=FontFixed Hint font: bold 14px 'Monaco for Powerline'; color: #000; text-shadow: 0 0.1em 1px rgba(255,255,255,0.8); background: -moz-linear-gradient(top, rgba(255,247,133,0.95), rgba(255,197,66,0.95)); padding: 2px; border-radius: 3px; border: 1px solid #666; box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+highlight -link=FontFixed StatusLine -moz-appearance: none !important; font-weight: bold; background: transparent !important; border: 0px !important; padding-right: 0px !important; min-height: 18px !important; text-shadow: none !important; font-size: 14px!important; font-family: "Menlo for Powerline"!important;
 highlight StatusNormal color: inherit !important; background: transparent !important; font-family: "Menlo for Powerline";
 map -count -modes=n,v <C-a> -builtin <count><C-v><C-a>
 map -count -modes=n,v <C-b> -builtin <count><C-v><C-b>
@@ -22,5 +28,6 @@ map -count -modes=c <C-b> -builtin <C-v><C-b>
 map -count -modes=i <C-a> -builtin <C-v><C-a>
 set hintkeys=qwertyuiopasdfghjkl
 set passkeys=feedly.com:jkr<Esc>,photo.renren.com:jk,www.douban.com:<left><right>
+set titlestring=''
 
 " vim: set ft=pentadactyl:

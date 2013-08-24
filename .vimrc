@@ -6,9 +6,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 " ======== Interface ========
 set ruler
-set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+set number
 set wildmenu
 set wildignore=*.0,*~,*.pyc,*.class
 set whichwrap+=<,>,h,l
@@ -48,6 +46,8 @@ colorscheme mBusyBee
 set t_co=256
 highlight OverLength ctermbg=black
 match OverLength /\%81v.\+/
+highlight LineEndSpaces ctermbg=yellow
+match LineEndSpaces /\s\+$/
 
 " ======== Search ========
 set hlsearch
@@ -82,7 +82,7 @@ set smarttab
 " nnoremap t k
 " nnoremap n l
 
-" Navi 
+" Navi
 map j gj
 map k gk
 
@@ -194,7 +194,7 @@ autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 "inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
 "inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
-imap <silent> ` <c-x><c-o>
+imap <silent> <c-`> <c-x><c-o>
 
 " remember last cursor location
 autocmd BufReadPost *

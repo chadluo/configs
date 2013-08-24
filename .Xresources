@@ -20,7 +20,7 @@ URxvt.saveLines: 50000
 
 URxvt*meta8: True
 
-URxvt.font: xft:Menlo for Powerline:size=10,xft:WenQuanYi Micro Hei Mono:size=10
+URxvt.font: xft:Inconsolata for Powerline:size=10,xft:WenQuanYi Micro Hei Mono:size=10
 
 URxvt.foreground: #FFFFFF
 URxvt.color0:     #2E3436
