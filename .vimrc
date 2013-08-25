@@ -11,6 +11,7 @@ set wildmenu
 set wildignore=*.0,*~,*.pyc,*.class
 set whichwrap+=<,>,h,l
 set scrolloff=4
+set ttyfast
 set nowrap
 set mouse=a
 set laststatus=2
@@ -76,15 +77,13 @@ set smarttab
 
 " ======== Operation ========
 
-" Dvorak
-" nnoremap d h
-" nnoremap h j
-" nnoremap t k
-" nnoremap n l
-
 " Navi
 map j gj
 map k gk
+
+" Normal Regex
+nnoremap / /\v
+vnoremap / /\v
 
 " walk through windows
 nmap <C-h> :wincmd h<CR>
@@ -122,12 +121,11 @@ Bundle 'gmarik/vundle'
 filetype plugin indent on " required
 
 Bundle 'EasyMotion'
-Bundle 'Markdown'
-Bundle 'The-NERD-tree'
-Bundle 'ZenCoding.vim'
 Bundle 'godlygeek/tabular'
-Bundle 'javacomplete'
-Bundle 'SyntaxComplete'
+Bundle 'Markdown'
+Bundle 'The-NERD-Commenter'
+Bundle 'matchit.zip'
+Bundle 'ZenCoding.vim'
 
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
@@ -155,23 +153,6 @@ nnoremap <leader>q :w !sudo tee % > /dev/null<CR>
 " indent all
 map <leader>= gg=G
 
-"" NERDTree
-nnoremap <leader>n :NERDTree<CR>
-" o - open/close file or dir
-" t - open in new tab
-" T - open in background tab
-" ! - execute
-" p - upper directory
-" P - root directory
-" K - first node
-" J - last node
-" u - open upper directory
-" m - filesystem menu
-" ? - help
-" q - quit
-" r - refresh
-" <C-w>h/j/k/l
-
 " ======== trival ========
 
 " zencoding(emmet)
@@ -190,11 +171,6 @@ endfunction
 
 " Omni Completion
 set omnifunc=syntaxcomplete#Complete
-autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
-"inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
-"inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
-imap <silent> <c-`> <c-x><c-o>
 
 " remember last cursor location
 autocmd BufReadPost *
