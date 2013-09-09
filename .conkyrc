@@ -46,5 +46,5 @@ lua_draw_hook_pre conky_draw_bg
 
 TEXT
 ${color}${loadavg}
-${color1}${voffset -85}${time %H}.${time %M} / ${acpitemp} / ${battery_percent}
-${color}${voffset -85}${downspeedf wlp2s0} / ${upspeedf wlp2s0} 
+${color1}${voffset -85}${time %H.%M} / ${downspeedf wlp2s0} / ${upspeedf wlp2s0}
+${color}${voffset -85}${memperc} / ${acpitemp} / ${battery_percent}

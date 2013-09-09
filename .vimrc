@@ -9,6 +9,7 @@ set ruler
 set number
 set wildmenu
 set wildignore=*.0,*~,*.pyc,*.class
+set wildmode=longest,list,full
 set whichwrap+=<,>,h,l
 set scrolloff=4
 set ttyfast
@@ -69,9 +70,8 @@ set autoindent
 set cindent
 set smartindent
 set wrap
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+autocmd FileType * set tabstop=4|set softtabstop=4|set shiftwidth=4
+autocmd FileType yaml set tabstop=2|set softtabstop=2|set shiftwidth=2
 set expandtab
 set smarttab
 
@@ -80,10 +80,6 @@ set smarttab
 " Navi
 map j gj
 map k gk
-
-" Normal Regex
-nnoremap / /\v
-vnoremap / /\v
 
 " walk through windows
 nmap <C-h> :wincmd h<CR>
@@ -121,10 +117,34 @@ Bundle 'gmarik/vundle'
 filetype plugin indent on " required
 
 Bundle 'EasyMotion'
+" ,,j / ,,k
 Bundle 'godlygeek/tabular'
+" :Tab/=
+Bundle 'kshenoy/vim-signature'
+" m[a-zA-Z]    : Toggle mark
+" m<Space>     : Delete all marks
+" m,           : Place the next available mark
+" ]`           : Jump to next mark
+" [`           : Jump to prev mark
+" ]'           : Jump to start of next line containing a mark
+" ['           : Jump to start of prev line containing a mark
+" `]           : Jump by alphabetical order to next mark
+" `[           : Jump by alphabetical order to prev mark
+" ']           : Jump by alphabetical order
+"                to start of next line containing a mark
+" '[           : Jump by alphabetical order
+"                to start of prev line containing a mark
+" m[0-9]       : Toggle the corresponding marker !@#$%^&*()
+" m<S-[0-9]>   : Remove all markers of the same type
+" ]-           : Jump to next line having same marker
+" [-           : Jump to prev line having same marker
+" m<BackSpace> : Remove all markers
 Bundle 'Markdown'
 Bundle 'The-NERD-Commenter'
+" ,c<space> toggle comment
 Bundle 'matchit.zip'
+Bundle 'yaml.vim'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'ZenCoding.vim'
 
 " :BundleList          - list configured bundles
@@ -132,10 +152,10 @@ Bundle 'ZenCoding.vim'
 " :BundleSearch(!) foo - search(or refresh cache first) for foo
 " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
-" ==== Mapleader ====
-let mapleader=","
-let maplocalleader=","
-let g:mapleader=","
+"==== Mapleader ====
+let mapleader      = ","
+let maplocalleader = ","
+let g:mapleader    = ","
 set notimeout
 set ttimeout
 " may cause problem for <ESC> exit INSERT to NORMAL under xterm
@@ -168,9 +188,6 @@ function! Fcitx2en()
         let l:a = system("fcitx-remote -c")
     endif
 endfunction
-
-" Omni Completion
-set omnifunc=syntaxcomplete#Complete
 
 " remember last cursor location
 autocmd BufReadPost *
