@@ -31,7 +31,7 @@ set splitbelow
 set splitright
 
 " Powerline
-let g:Powerline_symbols='fancy'
+" let g:Powerline_symbols='fancy'
 
 " ==== Folding ====
 nnoremap <leader>f za
@@ -108,19 +108,27 @@ vnoremap <tab> %
 noremap H ^
 noremap L $
 
-" ======== Vundle ========
-filetype off " required for vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc() " required! let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-" vim-scripts repos
-filetype plugin indent on " required
+" ======== NeoBundle ========
 
-Bundle 'EasyMotion'
+if has('vim_starting')
+    set nocompatible               " Be iMproved
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+"
+"   " Recommended to install
+"    " After install, turn shell ~/.vim/bundle/vimproc,
+"    (n,g)make -f your_machines_makefile
+NeoBundle 'Shougo/vimproc'
+
+" navigation
+NeoBundle 'EasyMotion'
 " ,,j / ,,k
-Bundle 'godlygeek/tabular'
-" :Tab/=
-Bundle 'kshenoy/vim-signature'
+NeoBundle 'kshenoy/vim-signature'
 " m[a-zA-Z]    : Toggle mark
 " m<Space>     : Delete all marks
 " m,           : Place the next available mark
@@ -139,20 +147,29 @@ Bundle 'kshenoy/vim-signature'
 " ]-           : Jump to next line having same marker
 " [-           : Jump to prev line having same marker
 " m<BackSpace> : Remove all markers
-Bundle 'Markdown'
-Bundle 'The-NERD-Commenter'
+
+" syntax
+NeoBundle 'Markdown'
+NeoBundle 'yaml.vim'
+
+" enhancement
+NeoBundle 'godlygeek/tabular'
+" :Tab/=
+NeoBundle 'The-NERD-Commenter'
 " ,c<space> toggle comment
-Bundle 'matchit.zip'
-Bundle 'yaml.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'ZenCoding.vim'
+NeoBundle 'matchit.zip'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'ZenCoding.vim'
+NeoBundle 'bling/vim-airline'
 
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
-"==== Mapleader ====
+filetype plugin indent on
+NeoBundleCheck
+
+" ==== Mapleader ====
 let mapleader      = ","
 let maplocalleader = ","
 let g:mapleader    = ","
@@ -172,6 +189,9 @@ nnoremap <leader>q :w !sudo tee % > /dev/null<CR>
 
 " indent all
 map <leader>= gg=G
+
+" ==== airline ====
+let g:airline_powerline_fonts = 1
 
 " ======== trival ========
 
