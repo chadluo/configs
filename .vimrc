@@ -29,9 +29,6 @@ set tm=500
 set splitbelow
 set splitright
 
-" Powerline
-" let g:Powerline_symbols='fancy'
-
 " ==== Folding ====
 nnoremap <leader>f za
 onoremap <leader>f <C-C>za
@@ -153,6 +150,14 @@ NeoBundle 'yaml.vim'
 
 " enhancement
 NeoBundle 'tpope/vim-fugitive'
+" :Git, git []
+" :Gstatus, git status
+" :Gcommit, git commit
+" :Gdiff, git diff
+" :Glog, git log file
+" :Ge, e file
+" :Gread, git checkout file
+" :Gwrite, git add file
 NeoBundle 'godlygeek/tabular'
 " :Tab/=
 NeoBundle 'The-NERD-Commenter'
