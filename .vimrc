@@ -11,7 +11,6 @@ set wildmenu
 set wildignore=*.0,*~,*.pyc,*.class
 set wildmode=longest,list,full
 set whichwrap+=<,>,h,l
-set scrolloff=4
 set ttyfast
 set nowrap
 set mouse=a
@@ -153,6 +152,7 @@ NeoBundle 'Markdown'
 NeoBundle 'yaml.vim'
 
 " enhancement
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'godlygeek/tabular'
 " :Tab/=
 NeoBundle 'The-NERD-Commenter'
