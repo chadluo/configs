@@ -7,6 +7,29 @@ Xft.hintstyle: hintfull
 
 ! -------- !
 
+UXTerm*borderLess:true
+
+UXTerm*faceNameDoublesize: WenQuanYi Micro Hei Mono
+
+UXTerm*faceName: Menlo for Powerline
+UXTerm*faceSize: 10
+
+XTerm*loginshell: 1
+XTerm*locale: 1
+XTerm.utf8: 1
+XTerm*utf8Title: 1
+
+UXTerm.VT100*dynamicColors: On
+UXTerm*geometry:85x57-100+100
+UXTerm*rightScrollBar: true
+UXTerm*cursorBlink: false
+UXTerm*xftAntialias: 1
+
+UXTerm*background: #192224
+UXTerm*foreground: #FFFFFF
+
+! -------- !
+
 *newLoginCommand: lxdm -c USER_SWITCH
 
 URxvt*termName:screen-256color

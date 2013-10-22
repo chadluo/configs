@@ -1,7 +1,13 @@
 " ======== General ========
 set nocompatible
 set history=200
+set fileencodings=utf-8,gb2312,gbk,cp936
+set termencoding=utf-8
+set enc=utf-8
 set encoding=utf-8
+set clipboard=unnamed
+set autowrite
+set updatecount=50
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
 " ======== Interface ========
@@ -13,6 +19,7 @@ set wildmode=longest,list,full
 set whichwrap+=<,>,h,l
 set ttyfast
 set nowrap
+set noshowmode
 set mouse=a
 set laststatus=2
 set backspace=indent,eol,start
@@ -197,6 +204,15 @@ map <leader>= gg=G
 
 " ==== airline ====
 let g:airline_powerline_fonts = 1
+
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = ''
+
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#whitespace#symbol = '!'
+let g:airline#extensions#whitespace#checks = [ 'trailing' ]
+let g:airline#extensions#whitespace#show_message = 1
+let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 
 " ======== trival ========
 

@@ -31,6 +31,9 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -I'
 
+# git
+alias gcm = 'git commit -a -m "$(date)"'
+
 wiki() { dig +short txt $1.wp.dg.cx; }
 mkcd() { mkdir $1 && cd $1 }
 coc() { clang $1.c -o $1 }
