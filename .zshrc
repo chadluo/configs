@@ -32,7 +32,7 @@ alias mv='mv -i'
 alias rm='rm -I'
 
 # git
-alias gcm = 'git commit -a -m "$(date)"'
+alias gcm='git commit -a -m "$(date)"'
 
 wiki() { dig +short txt $1.wp.dg.cx; }
 mkcd() { mkdir $1 && cd $1 }
@@ -49,8 +49,8 @@ export PATH
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # nvm
-sed -i 's/^plugins=(/plugins=(nvm-zsh /' ~/.zshrc
-source ~/nvm/nvm.sh
+# sed -i 's/^plugins=(/plugins=(nvm-zsh /' ~/.zshrc
+# source ~/nvm/nvm.sh
 
 zstyle ':completion:*' menu select
 
