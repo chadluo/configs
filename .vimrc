@@ -18,6 +18,7 @@ set wildignore=*.0,*~,*.pyc,*.class
 set wildmode=longest,list,full
 set whichwrap+=<,>,h,l
 set ttyfast
+set lazyredraw
 set nowrap
 set noshowmode
 set mouse=a
@@ -74,7 +75,7 @@ set cindent
 set smartindent
 set wrap
 autocmd FileType * set tabstop=4|set softtabstop=4|set shiftwidth=4
-autocmd FileType yaml set tabstop=2|set softtabstop=2|set shiftwidth=2
+autocmd FileType yaml,html set tabstop=2|set softtabstop=2|set shiftwidth=2
 set expandtab
 set smarttab
 
@@ -122,10 +123,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
-"
-"   " Recommended to install
-"    " After install, turn shell ~/.vim/bundle/vimproc,
-"    (n,g)make -f your_machines_makefile
 NeoBundle 'Shougo/vimproc'
 
 " navigation
@@ -154,8 +151,10 @@ NeoBundle 'kshenoy/vim-signature'
 " syntax
 NeoBundle 'Markdown'
 NeoBundle 'yaml.vim'
+NeoBundle 'TagHighlight'
 
 " enhancement
+NeoBundle 'Emmet.vim'
 NeoBundle 'tpope/vim-fugitive'
 " :Git, git []
 " :Gstatus, git status
@@ -170,8 +169,6 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'The-NERD-Commenter'
 " ,c<space> toggle comment
 NeoBundle 'matchit.zip'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'ZenCoding.vim'
 NeoBundle 'bling/vim-airline'
 
 " :NeoBundleList          - list configured bundles
@@ -197,10 +194,7 @@ nnoremap <leader>s :split<CR>
 noremap <leader><ESC> :nohlsearch<CR>
 
 "" save as root
-nnoremap <leader>q :w !sudo tee % > /dev/null<CR>
-
-" indent all
-map <leader>= gg=G
+nnoremap <leader>w :w !sudo tee % > /dev/null<CR>
 
 " ==== airline ====
 let g:airline_powerline_fonts = 1
@@ -217,11 +211,22 @@ let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 " ======== trival ========
 
 " zencoding(emmet)
-let g:user_zen_expandabbr_key='<c-e>'
+let g:user_emmet_expandabbr_key = '<c-y>'
+let g:user_emmet_settings = {
+            \  'indentation' : '  ',
+            \  'perl' : {
+            \    'aliases' : {
+            \      'req' : 'require '
+            \    },
+            \    'snippets' : {
+            \      'use' : "use strict\nuse warnings\n\n",
+            \      'warn' : "warn \"|\";",
+            \    }
+            \  }
+            \}
 
 " turn off fcitx when exit INSERT
 let g:input_toggle = 1
-autocmd InsertLeave * call Fcitx2en()
 function! Fcitx2en()
     let s:input_status = system("fcitx-remote")
     if s:input_status == 2
@@ -229,6 +234,20 @@ function! Fcitx2en()
         let l:a = system("fcitx-remote -c")
     endif
 endfunction
+autocmd InsertLeave * call Fcitx2en()
+
+" strip trailing whitespace
+function! StripWhitespace()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    :%s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace()<CR>
+
+" indent all
+noremap <leader>= gg=G
 
 " remember last cursor location
 autocmd BufReadPost *
