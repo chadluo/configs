@@ -5,7 +5,8 @@ ZSH=/usr/share/oh-my-zsh/
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
+DEFAULT_USER="yuki"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -23,13 +24,13 @@ ZSH_THEME="robbyrussell"
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
 
-# Uncomment following line if you want to disable autosetting terminal title.
+# Uncomment if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want to disable command autocorrection
 # DISABLE_CORRECTION="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
+# Uncomment if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
@@ -40,7 +41,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh nvm-zsh git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,18 +50,18 @@ source $ZSH/oh-my-zsh.sh
 autoload -U compinit
 compinit
 
-PROMPT="
-%{$(echo "\a")%}%B[%2c] %#%b "
-RPROMPT="%B[%?][%T]%b"
+# PROMPT="
+# %{$(echo "\a")%}%B[%2c] %#%b "
+# RPROMPT="%B[%?][%T]%b"
 
 bindkey -v # vim mode
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd '^R' history-incremental-search-backward
 
 # list
-alias lsf='ls -ABbFGlhrt --time-style="+<%y/%m/%d %H:%M>"'
-alias lsb='lsf | tail -15'
-alias flt='lsf | egrep '
+alias ll='ls -ABbFGlhrt --time-style="+<%y/%m/%d %H:%M>"'
+alias lsb='ll | tail -15'
+alias flt='ll | egrep '
 
 alias dfh="df -h"
 alias dus="du -ch -d 1 | sort -h"
