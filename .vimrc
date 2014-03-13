@@ -170,6 +170,7 @@ NeoBundle 'The-NERD-Commenter'
 " ,c<space> toggle comment
 NeoBundle 'matchit.zip'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'ctags.vim'
 
 " :NeoBundleList          - list configured bundles
 " :NeoBundleInstall(!)    - install(update) bundles

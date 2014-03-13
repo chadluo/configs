@@ -44,6 +44,8 @@ color1 ffffff
 lua_load ~/.conky/conkybg.lua
 lua_draw_hook_pre conky_draw_bg
 
+# ${color1}${voffset -85}${time %H.%M} / ${downspeedf wlp2s0} / ${upspeedf wlp2s0}
+
 TEXT
 ${color}${loadavg}
 ${color1}${voffset -85}${time %H.%M} / ${downspeedf wlp2s0} / ${upspeedf wlp2s0}

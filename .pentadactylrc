@@ -1,4 +1,4 @@
-"hg6935
+"hg7063
 
 loadplugins '\.(js|penta)$'
 group user
@@ -29,7 +29,7 @@ map -count -modes=c <C-x> -builtin <C-v><C-x>
 map -count -modes=c <C-b> -builtin <C-v><C-b>
 map -count -modes=i <C-a> -builtin <C-v><C-a>
 set hintkeys=qwertyuiopasdfghjkl
-set passkeys=feedly.com:jkr<Esc>,photo.renren.com:jk,www.douban.com:<left><right>
+set passkeys=feedly.com:jkr<Esc>gg,photo.renren.com:jk,www.douban.com:<left><right>
 set titlestring=''
 
 " vim: set ft=pentadactyl:
